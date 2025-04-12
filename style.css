@@ -9,9 +9,9 @@ body {
 
 
    #th {
-      font-size: 2em;
+      font-size: 20px;
       text-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00;
-       font-size: 20em; 
+      
     }
 .terminal {
     background-color: #000;
