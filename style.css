@@ -8,13 +8,6 @@ body {
 }
 
 
-#th {
-  font-size: 80px;
-  text-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00;
-  font-family: monospace;
-  color: #00FF00;
-  margin: 0 0 20px 0;
-}
 
 
 .terminal {
