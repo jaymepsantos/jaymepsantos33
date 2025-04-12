@@ -9,14 +9,10 @@ body {
 
 .terminal {
     background-color: #000;
-    border: 5px solid #333; /* Borda mais grossa e cor cinza escura para a moldura */
+    border: 2px solid #0F0;
     padding: 20px;
-    border-radius: 10px; /* Bordas um pouco mais arredondadas */
-    box-shadow: 0 0 20px #0F0; /* Sombra mais intensa */
-    width: 80%; /* Largura do monitor (ajuste conforme necessário) */
-    max-width: 800px; /* Largura máxima para não ficar muito grande em telas maiores */
-    height: 60%; /* Altura do monitor (ajuste conforme necessário) */
-    max-height: 600px; /* Altura máxima */
+    border-radius: 5px;
+    box-shadow: 0 0 10px #0F0;
 }
 
 .terminal-screen {
@@ -24,10 +20,10 @@ body {
     padding: 20px;
     font-family: monospace;
     color: #0F0;
-    white-space: pre-wrap; /* Mantém a formatação e quebras de linha */
-    overflow: hidden; /* Esconde o cursor piscando fora do texto */
-    height: 100%; /* A tela ocupa toda a altura do terminal */
-    box-sizing: border-box; /* Garante que o padding não aumente o tamanho total */
+    white-space: pre-wrap;
+    overflow: hidden;
+    position: relative;
+    min-height: 150px; /* Garante uma altura mínima para o terminal */
 }
 
 #terminal-text::after {
