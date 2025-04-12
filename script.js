@@ -1,5 +1,14 @@
 const terminalTextElement = document.getElementById('terminal-text');
 
+const phrases = [
+  "Bom Dia Thales",
+  "A Matrix achou você...",
+  "Despertando...",
+  "Conectando ao sistema...",
+  // outras frases
+];
+
+
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
