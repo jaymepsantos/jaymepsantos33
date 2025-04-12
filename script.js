@@ -78,17 +78,18 @@ function startTerminalEffect() {
                                         setTimeout(() => {
                                             phraseIndex++;
                                             displayNextPhrase();
-                                        }, 1500); // Tempo que a frase fica visível
+                                        }, 1500);
                                     });
-                                }, 500); // Pequeno delay antes de digitar a próxima frase
+                                }, 500);
                             });
                         }
                     }
 
-                    setTimeout(displayNextPhrase, 2000); // Delay antes de começar a exibir as frases
-                }, 1500); // Tempo que a mensagem inicial fica visível
+                    // Inicia a exibição das frases aleatórias após um pequeno delay
+                    setTimeout(displayNextPhrase, 1000);
+                }, 1000); // Delay após a mensagem inicial
             });
-        }, 1000); // Adicionado um pequeno delay após "Bom dia Thales"
+        }, 500); // Delay após "Bom dia Thales"
     });
 }
 
