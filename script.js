@@ -1,7 +1,7 @@
 const terminalTextElement = document.getElementById('terminal-text');
-const initialMessage = "A Matrix achou você...";
+const initialMessage = "Bom dia Thales A Matrix achou você...";
 const phrases = [
-    "Acorde, Neo...",
+    "Acorde, Thales...",
     "A Matrix achou você...",
     "Siga o coelho branco.",
     "O que é real? Como você define o real?",
