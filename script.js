@@ -12,7 +12,7 @@ const phrases = [
     "Esta é a sua última chance. Depois disso, não há volta.",
     "Se tomar a pílula azul, a história acaba. Você acorda na sua cama e acredita no que quiser.",
     "Se tomar a pílula vermelha, fica no País das Maravilhas, e eu te mostrarei até onde vai a toca do coelho.",
-    "Humanos são um vírus. Vocês são a praga deste planeta. E nós... somos a cura.",
+    "wow.",
     "Sr. Anderson...",
     "Você ouve isso, Sr. Anderson? Isso é o som da inevitabilidade.",
     "Você está dizendo que eu posso desviar de balas?",
