@@ -1,12 +1,5 @@
 const terminalTextElement = document.getElementById('terminal-text');
 
-const phrases = [
-  "Bom Dia Thales",
-  "A Matrix achou você...",
-  "Despertando...",
-  "Conectando ao sistema...",
-  // outras frases
-];
 
 
 
