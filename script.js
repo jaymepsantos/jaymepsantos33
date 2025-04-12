@@ -1,6 +1,5 @@
 const terminalTextElement = document.getElementById('terminal-text');
 
-
 const phrases = [
     "Acorde, Neo...",
     "A Matrix achou você...",
@@ -13,9 +12,6 @@ const phrases = [
     "Esta é a sua última chance. Depois disso, não há volta.",
     "Se tomar a pílula azul, a história acaba. Você acorda na sua cama e acredita no que quiser.",
     "Se tomar a pílula vermelha, fica no País das Maravilhas, e eu te mostrarei até onde vai a toca do coelho.",
-    "Acorde, Neo...",
-    "A Matrix achou você...",
-    "Siga o coelho branco.",
     "Humanos são um vírus. Vocês são a praga deste planeta. E nós... somos a cura.",
     "Sr. Anderson...",
     "Você ouve isso, Sr. Anderson? Isso é o som da inevitabilidade.",
@@ -66,29 +62,33 @@ function clearText(element, delay, callback) {
 }
 
 function startTerminalEffect() {
-    typeWriter("A Matrix achou você...", terminalTextElement, 50, () => {
+    typeWriter("Bom dia Thales", terminalTextElement, 50, () => {
         setTimeout(() => {
-            shuffleArray(phrases);
-            let phraseIndex = 0;
+            typeWriter("A Matrix achou você...", terminalTextElement, 50, () => {
+                setTimeout(() => {
+                    shuffleArray(phrases);
+                    let phraseIndex = 0;
 
-            function displayNextPhrase() {
-                if (phraseIndex < phrases.length) {
-                    const currentPhrase = phrases[phraseIndex];
-                    clearText(terminalTextElement, 30, () => {
-                        setTimeout(() => {
-                            typeWriter(currentPhrase, terminalTextElement, 50, () => {
+                    function displayNextPhrase() {
+                        if (phraseIndex < phrases.length) {
+                            const currentPhrase = phrases[phraseIndex];
+                            clearText(terminalTextElement, 30, () => {
                                 setTimeout(() => {
-                                    phraseIndex++;
-                                    displayNextPhrase();
-                                }, 1500); // Tempo que a frase fica visível
+                                    typeWriter(currentPhrase, terminalTextElement, 50, () => {
+                                        setTimeout(() => {
+                                            phraseIndex++;
+                                            displayNextPhrase();
+                                        }, 1500); // Tempo que a frase fica visível
+                                    });
+                                }, 500); // Pequeno delay antes de digitar a próxima frase
                             });
-                        }, 500); // Pequeno delay antes de digitar a próxima frase
-                    });
-                }
-            }
+                        }
+                    }
 
-            setTimeout(displayNextPhrase, 2000); // Delay antes de começar a exibir as frases
-        }, 1500); // Tempo que a mensagem inicial fica visível
+                    setTimeout(displayNextPhrase, 2000); // Delay antes de começar a exibir as frases
+                }, 1500); // Tempo que a mensagem inicial fica visível
+            });
+        }, 1000); // Adicionado um pequeno delay após "Bom dia Thales"
     });
 }
 
