@@ -1,5 +1,5 @@
 const terminalTextElement = document.getElementById('terminal-text');
-
+const initialMessage = "A Matrix achou você...";
 const phrases = [
     "Acorde, Neo...",
     "A Matrix achou você...",
@@ -21,14 +21,11 @@ const phrases = [
     "Porque você nunca os usou antes."
 ];
 
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-}
+let phraseIndex = 0;
+const typingSpeed = 50; // Velocidade de digitação em milissegundos
+const delayBetweenPhrases = 1500; // Tempo em milissegundos entre as frases
 
-function typeWriter(text, element, delay, callback) {
+function typeWriter(text, element, speed, callback) {
     let i = 0;
     element.textContent = '';
     const intervalId = setInterval(() => {
@@ -41,56 +38,22 @@ function typeWriter(text, element, delay, callback) {
                 callback();
             }
         }
-    }, delay);
+    }, speed);
 }
 
-function clearText(element, delay, callback) {
-    let currentText = element.textContent;
-    let i = currentText.length;
-    const intervalId = setInterval(() => {
-        if (i > 0) {
-            currentText = currentText.slice(0, -1);
-            element.textContent = currentText;
-            i--;
-        } else {
-            clearInterval(intervalId);
-            if (callback) {
-                callback();
-            }
-        }
-    }, delay);
+function displayPhrases() {
+    if (phraseIndex < phrases.length) {
+        typeWriter(phrases[phraseIndex], terminalTextElement, typingSpeed, () => {
+            phraseIndex++;
+            setTimeout(displayPhrases, delayBetweenPhrases);
+        });
+    }
 }
 
-function startTerminalEffect() {
-    typeWriter("Bom dia Thales", terminalTextElement, 50, () => {
-        setTimeout(() => {
-            typeWriter("A Matrix achou você...", terminalTextElement, 50, () => {
-                setTimeout(() => {
-                    shuffleArray(phrases);
-                    let phraseIndex = 0;
-
-                    function displayNextPhrase() {
-                        if (phraseIndex < phrases.length) {
-                            const currentPhrase = phrases[phraseIndex];
-                            clearText(terminalTextElement, 30, () => {
-                                setTimeout(() => {
-                                    typeWriter(currentPhrase, terminalTextElement, 50, () => {
-                                        setTimeout(() => {
-                                            phraseIndex++;
-                                            displayNextPhrase();
-                                        }, 1500);
-                                    });
-                                }, 500);
-                            });
-                        }
-                    }
-
-                    // Inicia a exibição das frases aleatórias após um pequeno delay
-                    setTimeout(displayNextPhrase, 1000);
-                }, 1000); // Delay após a mensagem inicial
-            });
-        }, 500); // Delay após "Bom dia Thales"
+function startTerminal() {
+    typeWriter(initialMessage, terminalTextElement, typingSpeed, () => {
+        setTimeout(displayPhrases, delayBetweenPhrases);
     });
 }
 
-startTerminalEffect();
+startTerminal();
